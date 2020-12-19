@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="699126d02593443eaac5b465e9c6b994" Name="Diagram1">
+        <EntityTypeShape EntityType="MagazineSetModel.Magazine" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagazineSetModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagazineSetModel.Отдел" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagazineSetModel.Продавец" Width="1.5" PointX="7.5" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagazineSetModel.Продавец_Товар__Выручка_" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagazineSetModel.Справочник__Улица" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagazineSetModel.Товар" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagazineSetModel.Отдел_товар" Width="1.5" PointX="10.5" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="MagazineSetModel.FK_Magazine_Справочник__Улица" ManuallyRouted="false" />
+        <AssociationConnector Association="MagazineSetModel.FK_Отдел_Magazine1" ManuallyRouted="false" />
+        <AssociationConnector Association="MagazineSetModel.FK_Продавец_Magazine1" ManuallyRouted="false" />
+        <AssociationConnector Association="MagazineSetModel.FK_Отдел_товар_Отдел" ManuallyRouted="false" />
+        <AssociationConnector Association="MagazineSetModel.FK_Продавец_Отдел" ManuallyRouted="false" />
+        <AssociationConnector Association="MagazineSetModel.FK_Продавец_Товар__Выручка__Продавец" ManuallyRouted="false" />
+        <AssociationConnector Association="MagazineSetModel.FK_Продавец_Справочник__Улица" ManuallyRouted="false" />
+        <AssociationConnector Association="MagazineSetModel.FK_Продавец_Товар__Выручка__Товар" ManuallyRouted="false" />
+        <AssociationConnector Association="MagazineSetModel.FK_Отдел_товар_Товар" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
