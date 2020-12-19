@@ -23,12 +23,21 @@ namespace Practica2020
         public MagazinePage()
         {
             InitializeComponent();
-            DGridMagPage.ItemsSource = MagazineSetEntities.GetContext().Magazine.ToList();
+            //DGridMagPage.ItemsSource = MagazineSetEntities.GetContext().Magazine.ToList();
         }
 
         private void Button_AddPage(object sender, RoutedEventArgs e)
         {
             Manager.MainFrame.Navigate(new AddPage());
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                MagazineSetEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                DGridMagPage.ItemsSource = MagazineSetEntities.GetContext().Magazine.ToList();
+            }
         }
     }
 }

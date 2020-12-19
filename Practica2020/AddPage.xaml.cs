@@ -27,5 +27,28 @@ namespace Practica2020
             DataContext = _currentMagazine;
             ComboStreet.ItemsSource = MagazineSetEntities.GetContext().Справочник__Улица.ToList();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Save(object sender, RoutedEventArgs e)
+        {
+            if (_currentMagazine.id_магазина == 0)
+            {
+                MagazineSetEntities.GetContext().Magazine.Add(_currentMagazine);
+            }
+            try
+            {
+                MagazineSetEntities.GetContext().SaveChanges();
+                MessageBox.Show("Всё правильно!");
+                Manager.MainFrame.GoBack();
+            }
+            catch
+            {
+
+            }
+        }
     }
 }
