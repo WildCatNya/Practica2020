@@ -21,9 +21,13 @@ namespace Practica2020
     public partial class AddPage : Page
     {
         private Magazine _currentMagazine = new Magazine();
-        public AddPage()
+        public AddPage(Magazine selectedMagazine)
         {
             InitializeComponent();
+            if (selectedMagazine != null)
+            {
+                _currentMagazine = selectedMagazine;
+            }
             DataContext = _currentMagazine;
             ComboStreet.ItemsSource = MagazineSetEntities.GetContext().Справочник__Улица.ToList();
         }

@@ -25,10 +25,19 @@ namespace Practica2020
             InitializeComponent();
             //DGridMagPage.ItemsSource = MagazineSetEntities.GetContext().Magazine.ToList();
         }
+        private void Button_Edit(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new AddPage((sender as Button).DataContext as Magazine));
+        }
 
         private void Button_AddPage(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new AddPage());
+            Manager.MainFrame.Navigate(new AddPage(null));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
