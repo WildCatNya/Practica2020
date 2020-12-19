@@ -44,5 +44,25 @@ namespace Practica2020
         {
             Manager.MainFrame.Navigate(new AddPage((sender as Button).DataContext as Magazine));
         }
+
+        private void Button_DeletePage(object sender, RoutedEventArgs e)
+        {
+            var MagazineForRemoving = DGridMagPage.SelectedItems.Cast<Magazine>().ToList();
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {MagazineForRemoving.Count()} элементов?", 
+                "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    MagazineSetEntities.GetContext().Magazine.RemoveRange(MagazineForRemoving);
+                    MagazineSetEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Данные удалены!");
+                    DGridMagPage.ItemsSource = MagazineSetEntities.GetContext().Magazine.ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
+        }
     }
 }
