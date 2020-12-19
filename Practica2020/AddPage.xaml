@@ -23,7 +23,7 @@
         <TextBlock Grid.Row="1" Text="Название улицы" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
         <TextBlock Grid.Row="2" Text="Дом" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
         <TextBox Text="{Binding Имя_магазина}" Grid.Column="1" Grid.Row="0" Width="500" Height="37" HorizontalAlignment="Left" Margin="10"/>
-        <ComboBox SelectedItem="{Binding Справочник__Улица.Название}" x:Name="ComboStreet" DisplayMemberPath="Название" Grid.Column="1" Grid.Row="1" Width="500" Height="37" HorizontalAlignment="Left" Margin="10"/>
+        <ComboBox SelectedItem="{Binding Справочник__Улица}" x:Name="ComboStreet" DisplayMemberPath="Название" Grid.Column="1" Grid.Row="1" Width="500" Height="37" HorizontalAlignment="Left" Margin="10"/>
         <TextBox Text="{Binding Дом}" Grid.Column="1" Grid.Row="2" Width="500" Height="37" HorizontalAlignment="Left" Margin="10"/>
         <Button Content="Сохранить" Click="Button_Save" Grid.ColumnSpan="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="90" Height="50"/>
     </Grid>
