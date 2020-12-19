@@ -46,12 +46,12 @@ namespace Practica2020
             try
             {
                 MagazineSetEntities.GetContext().SaveChanges();
-                MessageBox.Show("Всё правильно!");
+                MessageBox.Show("Сохранение успешно");
                 Manager.MainFrame.GoBack();
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message.ToString());
             }
         }
     }
