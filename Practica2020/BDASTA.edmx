@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище MagazineSetModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище MagazineSetModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Magazine">
           <Key>
             <PropertyRef Name="id магазина" />
           </Key>
-          <Property Name="id магазина" Type="bigint" Nullable="false" />
+          <Property Name="id магазина" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Имя магазина" Type="varchar(max)" Nullable="false" />
           <Property Name="id СУ" Type="bigint" Nullable="false" />
           <Property Name="Дом" Type="varchar(max)" Nullable="false" />
@@ -28,7 +28,7 @@
           <Key>
             <PropertyRef Name="id отдела" />
           </Key>
-          <Property Name="id отдела" Type="bigint" Nullable="false" />
+          <Property Name="id отдела" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Имя отдела" Type="varchar(max)" Nullable="false" />
           <Property Name="id магазина" Type="bigint" Nullable="false" />
         </EntityType>
@@ -48,7 +48,7 @@
           <Key>
             <PropertyRef Name="id продавца" />
           </Key>
-          <Property Name="id продавца" Type="bigint" Nullable="false" />
+          <Property Name="id продавца" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id отдела" Type="bigint" Nullable="false" />
           <Property Name="Фамилия" Type="varchar(max)" Nullable="false" />
           <Property Name="Имя" Type="varchar(max)" Nullable="false" />
@@ -66,7 +66,7 @@
           <Key>
             <PropertyRef Name="id выручки" />
           </Key>
-          <Property Name="id выручки" Type="bigint" Nullable="false" />
+          <Property Name="id выручки" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id продавца" Type="bigint" Nullable="false" />
           <Property Name="id товара" Type="bigint" Nullable="false" />
           <Property Name="Дата продажи" Type="nchar" MaxLength="10" Nullable="false" />
@@ -76,14 +76,14 @@
           <Key>
             <PropertyRef Name="id СУ" />
           </Key>
-          <Property Name="id СУ" Type="bigint" Nullable="false" />
+          <Property Name="id СУ" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Название" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Товар">
           <Key>
             <PropertyRef Name="id товара" />
           </Key>
-          <Property Name="id товара" Type="bigint" Nullable="false" />
+          <Property Name="id товара" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Имя товара" Type="varchar(max)" Nullable="false" />
           <Property Name="Стоимость товара за 1 кг" Type="varchar(max)" Nullable="false" />
           <Property Name="Ед. изм." Type="varchar(max)" Nullable="false" />
@@ -248,8 +248,7 @@
             <End Role="Продавец" EntitySet="Продавец" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MagazineSetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
