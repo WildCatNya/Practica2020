@@ -6,19 +6,20 @@
       xmlns:local="clr-namespace:Practica2020"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="StartUpPage">
+      Title="StartUpPage" Width="800">
 
     <Grid Background="White">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="0" Click="Button_ClickMagazine" Content="Go to Magazine" Grid.Row="0" Background="Yellow" Width="auto" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button Grid.Column="1" Click="Button_ClickOtdel" Content="Go to Otdel" Grid.Row="0" Background="Yellow" Width="auto" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button Grid.Column="2" Click="Button_ClickOtdel" Content="Go to Tovar" Grid.Row="0" Background="Yellow" Width="auto" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Column="0" Click="Button_ClickMagazine" Content="Магазины" Grid.Row="0" Background="Yellow" Width="90" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Column="1" Click="Button_ClickOtdel" Content="Отделы" Grid.Row="0" Background="Yellow" Width="90" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Column="2" Click="Button_ClickTovar" Content="Товары" Grid.Row="0" Background="Yellow" Width="90" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Column="3" Click="Button_ClickOtdelTovar" Content="Склад" Grid.Row="0" Background="Yellow" Width="90" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Page>

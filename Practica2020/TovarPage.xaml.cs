@@ -23,6 +23,7 @@ namespace Practica2020
         public TovarPage()
         {
             InitializeComponent();
+            DGridTovarPage.ItemsSource = MagazineSetEntities.GetContext().Товар.ToList();
         }
     }
 }

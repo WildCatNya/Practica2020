@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddPage.xaml.cs">
+      <DependentUpon>AddPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BDASTA.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -78,6 +81,9 @@
     <Compile Include="Manager.cs" />
     <Compile Include="OtdelPage.xaml.cs">
       <DependentUpon>OtdelPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OtdelTovarPage.xaml.cs">
+      <DependentUpon>OtdelTovarPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="StartUpPage.xaml.cs">
       <DependentUpon>StartUpPage.xaml</DependentUpon>
@@ -106,6 +112,10 @@
     <Compile Include="Товар.cs">
       <DependentUpon>BDASTA.tt</DependentUpon>
     </Compile>
+    <Page Include="AddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MagazinePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -133,6 +143,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="OtdelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OtdelTovarPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -16,19 +16,14 @@ using System.Windows.Shapes;
 namespace Practica2020
 {
     /// <summary>
-    /// Логика взаимодействия для MagazinePage.xaml
+    /// Логика взаимодействия для OtdelTovarPage.xaml
     /// </summary>
-    public partial class MagazinePage : Page
+    public partial class OtdelTovarPage : Page
     {
-        public MagazinePage()
+        public OtdelTovarPage()
         {
             InitializeComponent();
-            DGridMagPage.ItemsSource = MagazineSetEntities.GetContext().Magazine.ToList();
-        }
-
-        private void Button_AddPage(object sender, RoutedEventArgs e)
-        {
-            Manager.MainFrame.Navigate(new AddPage());
+            DGridOtdelTovarPage.ItemsSource = MagazineSetEntities.GetContext().Отдел_товар.ToList();
         }
     }
 }

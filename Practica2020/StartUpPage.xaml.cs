@@ -34,5 +34,15 @@ namespace Practica2020
         {
             Manager.MainFrame.Navigate(new OtdelPage());
         }
+
+        private void Button_ClickTovar(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new TovarPage());
+        }
+
+        private void Button_ClickOtdelTovar(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new OtdelTovarPage());
+        }
     }
 }
