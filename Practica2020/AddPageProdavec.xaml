@@ -26,29 +26,32 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Text="Название отдела" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
         <TextBlock Grid.Row="1" Text="Фамилия" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
         <TextBlock Grid.Row="2" Text="Имя" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
         <TextBlock Grid.Row="3" Text="Отчество" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
         <TextBlock Grid.Row="4" Text="Название улицы" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
-        <TextBlock Grid.Row="5" Text="Квартира" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
-        <TextBlock Grid.Row="6" Text="Имя магазина" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
-        <TextBlock Grid.Row="7" Text="Дата рождения" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
-        <TextBlock Grid.Row="8" Text="Номер паспорта" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
-        <TextBlock Grid.Row="9" Text="Дата выдачи" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
-        <TextBlock Grid.Row="10" Text="Кто выдал паспорт?" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock Grid.Row="5" Text="Дом" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock Grid.Row="6" Text="Квартира" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock Grid.Row="7" Text="Имя магазина" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock Grid.Row="8" Text="Дата рождения" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock Grid.Row="9" Text="Номер паспорта" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock Grid.Row="10" Text="Дата выдачи" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock Grid.Row="11" Text="Кто выдал паспорт?" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
         <ComboBox SelectedItem="{Binding Отдел}" x:Name="ComboOtdel" DisplayMemberPath="Имя_отдела" Grid.Column="1" Grid.Row="0" Width="500" Height="37" HorizontalAlignment="Left" Margin="10, 0, 0, 0"/>
         <TextBox Text="{Binding Фамилия}" Grid.Column="1" Grid.Row="1" Width="500" Height="30" HorizontalAlignment="Left" Margin="10, 0, 0, 0"/>
         <TextBox Text="{Binding Имя}" Grid.Column="1" Grid.Row="2" Width="500" Height="30" HorizontalAlignment="Left" Margin="10, 0, 0, 0"/>
         <TextBox Text="{Binding Отчество}" Grid.Column="1" Grid.Row="3" Width="500" Height="30" HorizontalAlignment="Left" Margin="10, 0, 0, 0"/>
         <ComboBox SelectedItem="{Binding Справочник__Улица}" x:Name="ComboStreet" DisplayMemberPath="Название" Grid.Column="1" Grid.Row="4" Width="500" Height="37" HorizontalAlignment="Left" Margin="10, 0, 0, 0"/>
-        <TextBox Text="{Binding Квартира}" Grid.Column="1" Grid.Row="5" Width="500" Height="30" HorizontalAlignment="Left" Margin="10, 0, 0, 0"/>
-        <ComboBox SelectedItem="{Binding Magazine}" x:Name="ComboMagazine" DisplayMemberPath="Имя_магазина" Grid.Column="1" Grid.Row="6" Width="500" Height="37" HorizontalAlignment="Left" Margin="10, 0, 0, 0"/>
-        <TextBox Text="{Binding Дата_рождения}" Grid.Column="1" Grid.Row="7" Width="500" Height="30" HorizontalAlignment="Left" Margin="10, 0, 0, 0"/>
-        <TextBox Text="{Binding Номер_паспорта}" Grid.Column="1" Grid.Row="8" Width="500" Height="30" HorizontalAlignment="Left" Margin="10, 0, 0, 0"/>
-        <TextBox Text="{Binding Дата_выдачи}" Grid.Column="1" Grid.Row="9" Width="500" Height="30" HorizontalAlignment="Left" Margin="10, 0, 0, 0"/>
-        <TextBox Text="{Binding Кто_выдал_паспорт_}" Grid.Column="1" Grid.Row="10" Width="500" Height="30" HorizontalAlignment="Left" Margin="10, 0, 0, 0"/>
-        <Button Content="Сохранить" Click="Button_Save" Grid.ColumnSpan="2" Grid.Row="11" HorizontalAlignment="Center" VerticalAlignment="Center" Width="90" Height="50"/>
+        <TextBox Text="{Binding Дом}" Grid.Column="1" Grid.Row="5" Width="500" Height="30" HorizontalAlignment="Left" Margin="10, 0, 0, 0"/>
+        <TextBox Text="{Binding Квартира}" Grid.Column="1" Grid.Row="6" Width="500" Height="30" HorizontalAlignment="Left" Margin="10, 0, 0, 0"/>
+        <ComboBox SelectedItem="{Binding Magazine}" x:Name="ComboMagazine" DisplayMemberPath="Имя_магазина" Grid.Column="1" Grid.Row="7" Width="500" Height="37" HorizontalAlignment="Left" Margin="10, 0, 0, 0"/>
+        <TextBox Text="{Binding Дата_рождения}" Grid.Column="1" Grid.Row="8" Width="500" Height="30" HorizontalAlignment="Left" Margin="10, 0, 0, 0"/>
+        <TextBox Text="{Binding Номер_паспорта}" Grid.Column="1" Grid.Row="9" Width="500" Height="30" HorizontalAlignment="Left" Margin="10, 0, 0, 0"/>
+        <TextBox Text="{Binding Дата_выдачи}" Grid.Column="1" Grid.Row="10" Width="500" Height="30" HorizontalAlignment="Left" Margin="10, 0, 0, 0"/>
+        <TextBox Text="{Binding Кто_выдал_паспорт_}" Grid.Column="1" Grid.Row="11" Width="500" Height="30" HorizontalAlignment="Left" Margin="10, 0, 0, 0"/>
+        <Button Content="Сохранить" Click="Button_Save" Grid.ColumnSpan="2" Grid.Row="12" HorizontalAlignment="Center" VerticalAlignment="Center" Width="90" Height="50"/>
     </Grid>
 </Page>

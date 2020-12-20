@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Practica2020"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ProdavecPage" Width="1037" IsVisibleChanged="Page_IsVisibleChanged">
+      Title="ProdavecPage" Width="1045" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid Background="White">
         <Grid.RowDefinitions>

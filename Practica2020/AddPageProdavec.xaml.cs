@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 
 namespace Practica2020
 {
@@ -46,9 +48,20 @@ namespace Practica2020
                 MessageBox.Show("Сохранение успешно");
                 Manager.MainFrame.GoBack();
             }
-            catch (Exception ex)
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message.ToString());
+            //}
+            catch (DbEntityValidationException dbEx)
             {
-                MessageBox.Show(ex.Message.ToString());
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        
+                        Trace.TraceInformation("Property: {0} Error: {1}", MessageBox.Show(validationError.PropertyName), MessageBox.Show(validationError.ErrorMessage));
+                    }
+                }
             }
         }
     }
