@@ -70,6 +70,12 @@
     <Compile Include="AddPageOtdel.xaml.cs">
       <DependentUpon>AddPageOtdel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddPageOtdelTovar.xaml.cs">
+      <DependentUpon>AddPageOtdelTovar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddPageStreet.xaml.cs">
+      <DependentUpon>AddPageStreet.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddPageTovar.xaml.cs">
       <DependentUpon>AddPageTovar.xaml</DependentUpon>
     </Compile>
@@ -93,6 +99,9 @@
     </Compile>
     <Compile Include="StartUpPage.xaml.cs">
       <DependentUpon>StartUpPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StreetPage.xaml.cs">
+      <DependentUpon>StreetPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>BDASTA.tt</DependentUpon>
@@ -123,6 +132,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddPageOtdel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddPageOtdelTovar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddPageStreet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -165,6 +182,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StartUpPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StreetPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

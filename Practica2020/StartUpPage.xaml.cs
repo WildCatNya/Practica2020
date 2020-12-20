@@ -44,5 +44,10 @@ namespace Practica2020
         {
             Manager.MainFrame.Navigate(new OtdelTovarPage());
         }
+
+        private void Button_ClickStreet(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new StreetPage());
+        }
     }
 }

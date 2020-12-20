@@ -16,38 +16,38 @@ using System.Windows.Shapes;
 namespace Practica2020
 {
     /// <summary>
-    /// Логика взаимодействия для OtdelTovarPage.xaml
+    /// Логика взаимодействия для StreetPage.xaml
     /// </summary>
-    public partial class OtdelTovarPage : Page
+    public partial class StreetPage : Page
     {
-        public OtdelTovarPage()
+        public StreetPage()
         {
             InitializeComponent();
-            DGridOtdelTovarPage.ItemsSource = MagazineSetEntities.GetContext().Отдел_товар.ToList();
+            //DGridStreetPage.ItemsSource = MagazineSetEntities.GetContext().Справочник__Улица.ToList();
         }
 
         private void Button_Edit(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new AddPageOtdelTovar((sender as Button).DataContext as Отдел_товар));
+            Manager.MainFrame.Navigate(new AddPageStreet((sender as Button).DataContext as Справочник__Улица));
         }
 
         private void Button_AddPage(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new AddPageOtdelTovar(null));
+            Manager.MainFrame.Navigate(new AddPageStreet(null));
         }
 
         private void Button_DeletePage(object sender, RoutedEventArgs e)
         {
-            var OtdelTovarForRemoving = DGridOtdelTovarPage.SelectedItems.Cast<Отдел_товар>().ToList();
-            if (MessageBox.Show($"Вы точно хотите удалить следующие {OtdelTovarForRemoving.Count()} элементов?",
+            var StreetForRemoving = DGridStreetPage.SelectedItems.Cast<Справочник__Улица>().ToList();
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {StreetForRemoving.Count()} элементов?",
                 "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 try
                 {
-                    MagazineSetEntities.GetContext().Отдел_товар.RemoveRange(OtdelTovarForRemoving);
+                    MagazineSetEntities.GetContext().Справочник__Улица.RemoveRange(StreetForRemoving);
                     MagazineSetEntities.GetContext().SaveChanges();
                     MessageBox.Show("Данные удалены!");
-                    DGridOtdelTovarPage.ItemsSource = MagazineSetEntities.GetContext().Отдел_товар.ToList();
+                    DGridStreetPage.ItemsSource = MagazineSetEntities.GetContext().Справочник__Улица.ToList();
                 }
                 catch (Exception ex)
                 {
@@ -61,7 +61,7 @@ namespace Practica2020
             if (Visibility == Visibility.Visible)
             {
                 MagazineSetEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-                DGridOtdelTovarPage.ItemsSource = MagazineSetEntities.GetContext().Отдел_товар.ToList();
+                DGridStreetPage.ItemsSource = MagazineSetEntities.GetContext().Справочник__Улица.ToList();
             }
         }
     }

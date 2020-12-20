@@ -1,0 +1,30 @@
+﻿<Page x:Class="Practica2020.AddPageOtdelTovar"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Practica2020"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddPageOtdelTovar">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Имя отдела" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock Grid.Row="1" Text="Имя товара" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock Grid.Row="2" Text="Кол-во товара" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+        <ComboBox Text="{Binding Отдел}" x:Name="ComboOtdel" DisplayMemberPath="Имя_отдела" Grid.Column="1" Grid.Row="0" Width="500" Height="37" HorizontalAlignment="Left" Margin="10"/>
+        <ComboBox SelectedItem="{Binding Товар}" x:Name="ComboTovar" DisplayMemberPath="Имя_товара" Grid.Column="1" Grid.Row="1" Width="500" Height="37" HorizontalAlignment="Left" Margin="10"/>
+        <TextBox Text="{Binding Кол_во_товара}" Grid.Column="1" Grid.Row="2" Width="500" Height="37" HorizontalAlignment="Left" Margin="10"/>
+        <Button Content="Сохранить" Click="Button_Save" Grid.ColumnSpan="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="90" Height="50"/>
+    </Grid>
+</Page>
