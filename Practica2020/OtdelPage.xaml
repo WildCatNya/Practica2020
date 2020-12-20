@@ -6,17 +6,27 @@
       xmlns:local="clr-namespace:Practica2020"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="OtdelPage">
+      Title="OtdelPage" Height="450" Width="800" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid Background="White">
         <Grid.RowDefinitions>
+            <RowDefinition Height="375"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <DataGrid x:Name="DGridOtdelPage" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Имя отдела" Binding="{Binding Имя_отдела}" Width="200"/>
                 <DataGridTextColumn Header="Магазин" Binding="{Binding Magazine.Имя_магазина}" Width="*"/>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="Button_Edit" Content="Редактировать" Background="Yellow" Width="90" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Grid.Row="1" Click="Button_AddPage" Content="Добавить" Background="Yellow" Width="90" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Button Grid.Row="1" Click="Button_DeletePage" Content="Удалить" Background="Yellow" Width="90" Height="50" HorizontalAlignment="Right" VerticalAlignment="Center"/>
     </Grid>
 </Page>
