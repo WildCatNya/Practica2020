@@ -49,5 +49,10 @@ namespace Practica2020
         {
             Manager.MainFrame.Navigate(new StreetPage());
         }
+
+        private void Button_ClickProdavec(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new ProdavecPage());
+        }
     }
 }

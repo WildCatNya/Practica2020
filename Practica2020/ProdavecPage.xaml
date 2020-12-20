@@ -1,0 +1,42 @@
+﻿<Page x:Class="Practica2020.ProdavecPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Practica2020"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProdavecPage" Width="1037" IsVisibleChanged="Page_IsVisibleChanged">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="375"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="DGridProdavecPage" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название отдела" Binding="{Binding Отдел.Имя_отдела}" Width="105"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Фамилия}" Width="auto"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Имя}" Width="auto"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Отчество}" Width="auto"/>
+                <DataGridTextColumn Header="Название улицы" Binding="{Binding Справочник__Улица.Название}" Width="auto"/>
+                <DataGridTextColumn Header="Дом" Binding="{Binding Дом}" Width="auto"/>
+                <DataGridTextColumn Header="Квартира" Binding="{Binding Дом}" Width="auto"/>
+                <DataGridTextColumn Header="Имя магазина" Binding="{Binding Magazine.Имя_магазина}" Width="auto"/>
+                <DataGridTextColumn Header="Дата рождения" Binding="{Binding Дата_рождения}" Width="auto"/>
+                <DataGridTextColumn Header="Номер паспорта" Binding="{Binding Номер_паспорта}" Width="auto"/>
+                <DataGridTextColumn Header="Дата выдачи" Binding="{Binding Дата_выдачи}" Width="auto"/>
+                <DataGridTextColumn Header="Кто выдал паспорт?" Binding="{Binding Кто_выдал_паспорт_}" Width="auto"/>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="Button_Edit" Content="Редактировать" Background="Yellow" Width="90" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Row="1" Click="Button_AddPage" Content="Добавить" Background="Yellow" Width="90" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Button Grid.Row="1" Click="Button_DeletePage" Content="Удалить" Background="Yellow" Width="90" Height="50" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+    </Grid>
+</Page>

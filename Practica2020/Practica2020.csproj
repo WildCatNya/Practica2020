@@ -73,6 +73,9 @@
     <Compile Include="AddPageOtdelTovar.xaml.cs">
       <DependentUpon>AddPageOtdelTovar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddPageProdavec.xaml.cs">
+      <DependentUpon>AddPageProdavec.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddPageStreet.xaml.cs">
       <DependentUpon>AddPageStreet.xaml</DependentUpon>
     </Compile>
@@ -96,6 +99,9 @@
     </Compile>
     <Compile Include="OtdelTovarPage.xaml.cs">
       <DependentUpon>OtdelTovarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProdavecPage.xaml.cs">
+      <DependentUpon>ProdavecPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="StartUpPage.xaml.cs">
       <DependentUpon>StartUpPage.xaml</DependentUpon>
@@ -139,6 +145,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AddPageProdavec.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddPageStreet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -178,6 +188,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="OtdelTovarPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProdavecPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

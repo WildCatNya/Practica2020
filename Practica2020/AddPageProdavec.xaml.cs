@@ -16,37 +16,40 @@ using System.Windows.Shapes;
 namespace Practica2020
 {
     /// <summary>
-    /// Логика взаимодействия для AddPageOtdel.xaml
+    /// Логика взаимодействия для AddPageProdavec.xaml
     /// </summary>
-    public partial class AddPageOtdel : Page
+    public partial class AddPageProdavec : Page
     {
-        private Отдел _currentOtdel = new Отдел();
-        public AddPageOtdel(Отдел selectedOtdel)
+        private Продавец _currentProdavec = new Продавец();
+        public AddPageProdavec(Продавец selectedProdavec)
         {
             InitializeComponent();
-            if (selectedOtdel != null)
+            if (selectedProdavec != null)
             {
-                _currentOtdel = selectedOtdel;
+                _currentProdavec = selectedProdavec;
             }
-            DataContext = _currentOtdel;
-            ComboMagName.ItemsSource = MagazineSetEntities.GetContext().Magazine.ToList();
+            DataContext = _currentProdavec;
+            ComboOtdel.ItemsSource = MagazineSetEntities.GetContext().Отдел.ToList();
+            ComboStreet.ItemsSource = MagazineSetEntities.GetContext().Справочник__Улица.ToList();
+            ComboMagazine.ItemsSource = MagazineSetEntities.GetContext().Magazine.ToList();
         }
+
         private void Button_Save(object sender, RoutedEventArgs e)
         {
-            if (_currentOtdel.id_отдела == 0)
+            if (_currentProdavec.id_продавца == 0)
             {
-                MagazineSetEntities.GetContext().Отдел.Add(_currentOtdel);
+                MagazineSetEntities.GetContext().Продавец.Add(_currentProdavec);
             }
             try
             {
                 MagazineSetEntities.GetContext().SaveChanges();
                 MessageBox.Show("Сохранение успешно");
                 Manager.MainFrame.GoBack();
-        }
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }
-}
+        }
     }
 }
