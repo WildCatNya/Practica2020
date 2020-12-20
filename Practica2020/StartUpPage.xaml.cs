@@ -54,5 +54,10 @@ namespace Practica2020
         {
             Manager.MainFrame.Navigate(new ProdavecPage());
         }
+
+        private void Button_ClickGain(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new GainPage());
+        }
     }
 }

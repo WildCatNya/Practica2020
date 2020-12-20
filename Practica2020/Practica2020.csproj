@@ -67,6 +67,9 @@
     <Compile Include="AddPage.xaml.cs">
       <DependentUpon>AddPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddPageGain.xaml.cs">
+      <DependentUpon>AddPageGain.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddPageOtdel.xaml.cs">
       <DependentUpon>AddPageOtdel.xaml</DependentUpon>
     </Compile>
@@ -86,6 +89,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BDASTA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GainPage.xaml.cs">
+      <DependentUpon>GainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Magazine.cs">
       <DependentUpon>BDASTA.tt</DependentUpon>
@@ -137,6 +143,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AddPageGain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddPageOtdel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -154,6 +164,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddPageTovar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
