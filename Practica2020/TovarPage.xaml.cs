@@ -23,7 +23,46 @@ namespace Practica2020
         public TovarPage()
         {
             InitializeComponent();
-            DGridTovarPage.ItemsSource = MagazineSetEntities.GetContext().Товар.ToList();
+            //DGridTovarPage.ItemsSource = MagazineSetEntities.GetContext().Товар.ToList();
+        }
+
+        private void Button_Edit(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new AddPageTovar((sender as Button).DataContext as Товар));
+        }
+
+        private void Button_AddPage(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new AddPageTovar(null));
+        }
+
+        private void Button_DeletePage(object sender, RoutedEventArgs e)
+        {
+            var TovarForRemoving = DGridTovarPage.SelectedItems.Cast<Товар>().ToList();
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {TovarForRemoving.Count()} элементов?",
+                "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    MagazineSetEntities.GetContext().Товар.RemoveRange(TovarForRemoving);
+                    MagazineSetEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Данные удалены!");
+                    DGridTovarPage.ItemsSource = MagazineSetEntities.GetContext().Товар.ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                MagazineSetEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                DGridTovarPage.ItemsSource = MagazineSetEntities.GetContext().Товар.ToList();
+            }
         }
     }
 }

@@ -6,10 +6,11 @@
       xmlns:local="clr-namespace:Practica2020"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="TovarPage" Height="450" Width="800">
+      Title="TovarPage" Height="450" Width="800" IsVisibleChanged="Page_IsVisibleChanged">
 
-    <Grid>
+    <Grid Background="White">
         <Grid.RowDefinitions>
+            <RowDefinition Height="375"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <DataGrid x:Name="DGridTovarPage" AutoGenerateColumns="False" IsReadOnly="True">
@@ -17,7 +18,16 @@
                 <DataGridTextColumn Header="Имя товара" Binding="{Binding Имя_товара}" Width="200"/>
                 <DataGridTextColumn Header="Стоимость товара за 1 кг" Binding="{Binding Стоимость_товара_за_1_кг}" Width="*"/>
                 <DataGridTextColumn Header="Ед. измерения" Binding="{Binding Ед__изм_}" Width="*"/>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="Button_Edit" Content="Редактировать" Background="Yellow" Width="90" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Grid.Row="1" Click="Button_AddPage" Content="Добавить" Background="Yellow" Width="90" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Button Grid.Row="1" Click="Button_DeletePage" Content="Удалить" Background="Yellow" Width="90" Height="50" HorizontalAlignment="Right" VerticalAlignment="Center"/>
     </Grid>
 </Page>

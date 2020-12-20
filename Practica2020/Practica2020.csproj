@@ -70,6 +70,9 @@
     <Compile Include="AddPageOtdel.xaml.cs">
       <DependentUpon>AddPageOtdel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddPageTovar.xaml.cs">
+      <DependentUpon>AddPageTovar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BDASTA.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -120,6 +123,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddPageOtdel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddPageTovar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
