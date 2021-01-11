@@ -14,10 +14,10 @@ namespace Practica2020
     
     public partial class Отдел_товар
     {
-        public long id_отдела { get; set; }
-        public long id_товара { get; set; }
-        public string Кол_во_товара { get; set; }
+        public int id_отдела { get; set; }
         public int id_ОТ { get; set; }
+        public int id_товара { get; set; }
+        public decimal Кол_во_товара { get; set; }
     
         public virtual Отдел Отдел { get; set; }
         public virtual Товар Товар { get; set; }

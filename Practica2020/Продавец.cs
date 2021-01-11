@@ -21,15 +21,15 @@ namespace Practica2020
             this.Чек = new HashSet<Чек>();
         }
     
-        public long id_продавца { get; set; }
-        public long id_отдела { get; set; }
+        public int id_продавца { get; set; }
+        public int id_отдела { get; set; }
         public string Фамилия { get; set; }
         public string Имя { get; set; }
         public string Отчество { get; set; }
-        public long id_СУ { get; set; }
+        public int id_СУ { get; set; }
         public string Дом { get; set; }
         public string Квартира { get; set; }
-        public long id_магазина { get; set; }
+        public int id_магазина { get; set; }
         public string Дата_рождения { get; set; }
         public string Номер_паспорта { get; set; }
         public string Дата_выдачи { get; set; }

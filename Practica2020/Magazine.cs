@@ -21,9 +21,9 @@ namespace Practica2020
             this.Продавец = new HashSet<Продавец>();
         }
     
-        public long id_магазина { get; set; }
+        public int id_магазина { get; set; }
         public string Имя_магазина { get; set; }
-        public long id_СУ { get; set; }
+        public int id_СУ { get; set; }
         public string Дом { get; set; }
     
         public virtual Справочник__Улица Справочник__Улица { get; set; }

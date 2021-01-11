@@ -21,7 +21,7 @@ namespace Practica2020
         }
     
         public int id_чека { get; set; }
-        public long id_продавца { get; set; }
+        public int id_продавца { get; set; }
         public string Дата_продажи { get; set; }
     
         public virtual Продавец Продавец { get; set; }

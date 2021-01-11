@@ -14,9 +14,9 @@ namespace Practica2020
     
     public partial class Продавец_Товар__Выручка_
     {
-        public long id_выручки { get; set; }
-        public long id_продавца { get; set; }
-        public long id_товара { get; set; }
+        public int id_выручки { get; set; }
+        public int id_продавца { get; set; }
+        public int id_товара { get; set; }
         public string Дата_продажи { get; set; }
         public string Кол_во_продан__товара { get; set; }
     

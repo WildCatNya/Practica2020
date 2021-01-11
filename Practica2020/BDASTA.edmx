@@ -335,273 +335,61 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MagazineSetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Magazine">
-          <Key>
-            <PropertyRef Name="id_магазина" />
-          </Key>
-          <Property Name="id_магазина" Type="Int64" Nullable="false" />
-          <Property Name="Имя_магазина" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="id_СУ" Type="Int64" Nullable="false" />
-          <Property Name="Дом" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Справочник__Улица" Relationship="Self.FK_Magazine_Справочник__Улица" FromRole="Magazine" ToRole="Справочник__Улица" />
-          <NavigationProperty Name="Отдел" Relationship="Self.FK_Отдел_Magazine1" FromRole="Magazine" ToRole="Отдел" />
-          <NavigationProperty Name="Продавец" Relationship="Self.FK_Продавец_Magazine1" FromRole="Magazine" ToRole="Продавец" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Отдел">
-          <Key>
-            <PropertyRef Name="id_отдела" />
-          </Key>
-          <Property Name="id_отдела" Type="Int64" Nullable="false" />
-          <Property Name="Имя_отдела" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="id_магазина" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="Magazine" Relationship="Self.FK_Отдел_Magazine1" FromRole="Отдел" ToRole="Magazine" />
-          <NavigationProperty Name="Отдел_товар" Relationship="Self.FK_Отдел_товар_Отдел" FromRole="Отдел" ToRole="Отдел_товар" />
-          <NavigationProperty Name="Продавец" Relationship="Self.FK_Продавец_Отдел" FromRole="Отдел" ToRole="Продавец" />
-        </EntityType>
-        <EntityType Name="Продавец">
-          <Key>
-            <PropertyRef Name="id_продавца" />
-          </Key>
-          <Property Name="id_продавца" Type="Int64" Nullable="false" />
-          <Property Name="id_отдела" Type="Int64" Nullable="false" />
-          <Property Name="Фамилия" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Имя" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Отчество" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="id_СУ" Type="Int64" Nullable="false" />
-          <Property Name="Дом" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Квартира" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="id_магазина" Type="Int64" Nullable="false" />
-          <Property Name="Дата_рождения" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Номер_паспорта" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Дата_выдачи" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Кто_выдал_паспорт_" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Magazine" Relationship="Self.FK_Продавец_Magazine1" FromRole="Продавец" ToRole="Magazine" />
-          <NavigationProperty Name="Отдел" Relationship="Self.FK_Продавец_Отдел" FromRole="Продавец" ToRole="Отдел" />
-          <NavigationProperty Name="Продавец_Товар__Выручка_" Relationship="Self.FK_Продавец_Товар__Выручка__Продавец" FromRole="Продавец" ToRole="Продавец_Товар__Выручка_" />
-          <NavigationProperty Name="Справочник__Улица" Relationship="Self.FK_Продавец_Справочник__Улица" FromRole="Продавец" ToRole="Справочник__Улица" />
-          <NavigationProperty Name="Чек" Relationship="MagazineSetModel.FK_Чек_Продавец1" FromRole="Продавец" ToRole="Чек" />
-        </EntityType>
-        <EntityType Name="Продавец_Товар__Выручка_">
-          <Key>
-            <PropertyRef Name="id_выручки" />
-          </Key>
-          <Property Name="id_выручки" Type="Int64" Nullable="false" />
-          <Property Name="id_продавца" Type="Int64" Nullable="false" />
-          <Property Name="id_товара" Type="Int64" Nullable="false" />
-          <Property Name="Дата_продажи" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Кол_во_продан__товара" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Продавец" Relationship="Self.FK_Продавец_Товар__Выручка__Продавец" FromRole="Продавец_Товар__Выручка_" ToRole="Продавец" />
-          <NavigationProperty Name="Товар" Relationship="Self.FK_Продавец_Товар__Выручка__Товар" FromRole="Продавец_Товар__Выручка_" ToRole="Товар" />
-        </EntityType>
-        <EntityType Name="Справочник__Улица">
-          <Key>
-            <PropertyRef Name="id_СУ" />
-          </Key>
-          <Property Name="id_СУ" Type="Int64" Nullable="false" />
-          <Property Name="Название" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Magazine" Relationship="Self.FK_Magazine_Справочник__Улица" FromRole="Справочник__Улица" ToRole="Magazine" />
-          <NavigationProperty Name="Продавец" Relationship="Self.FK_Продавец_Справочник__Улица" FromRole="Справочник__Улица" ToRole="Продавец" />
-        </EntityType>
-        <EntityType Name="Товар">
-          <Key>
-            <PropertyRef Name="id_товара" />
-          </Key>
-          <Property Name="id_товара" Type="Int64" Nullable="false" />
-          <Property Name="Имя_товара" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Стоимость_товара_за_1_кг" Type="String" Nullable="false" />
-          <NavigationProperty Name="Продавец_Товар__Выручка_" Relationship="Self.FK_Продавец_Товар__Выручка__Товар" FromRole="Товар" ToRole="Продавец_Товар__Выручка_" />
-          <NavigationProperty Name="Отдел_товар" Relationship="Self.FK_Отдел_товар_Товар" FromRole="Товар" ToRole="Отдел_товар" />
-          <Property Name="id_ЕИ" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Единица_измерения" Relationship="MagazineSetModel.FK_Товар_Единица_измерения" FromRole="Товар" ToRole="Единица_измерения" />
-          <NavigationProperty Name="Содержимое_чека" Relationship="MagazineSetModel.FK_Содержимое_чека_Товар1" FromRole="Товар" ToRole="Содержимое_чека" />
-        </EntityType>
-        <EntityType Name="Отдел_товар">
-          <Key>
-            <PropertyRef Name="id_отдела" />
-            <PropertyRef Name="id_товара" />
-            <PropertyRef Name="Кол_во_товара" />
-            <PropertyRef Name="id_ОТ" />
-          </Key>
-          <Property Name="id_отдела" Type="Int64" Nullable="false" />
-          <Property Name="id_товара" Type="Int64" Nullable="false" />
-          <Property Name="Кол_во_товара" Type="String" Nullable="false" />
-          <NavigationProperty Name="Отдел" Relationship="Self.FK_Отдел_товар_Отдел" FromRole="Отдел_товар" ToRole="Отдел" />
-          <NavigationProperty Name="Товар" Relationship="Self.FK_Отдел_товар_Товар" FromRole="Отдел_товар" ToRole="Товар" />
-          <Property Name="id_ОТ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-        </EntityType>
-        <Association Name="FK_Magazine_Справочник__Улица">
-          <End Role="Справочник__Улица" Type="Self.Справочник__Улица" Multiplicity="1" />
-          <End Role="Magazine" Type="Self.Magazine" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Справочник__Улица">
-              <PropertyRef Name="id_СУ" />
-            </Principal>
-            <Dependent Role="Magazine">
-              <PropertyRef Name="id_СУ" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Отдел_Magazine1">
-          <End Role="Magazine" Type="Self.Magazine" Multiplicity="1" />
-          <End Role="Отдел" Type="Self.Отдел" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Magazine">
-              <PropertyRef Name="id_магазина" />
-            </Principal>
-            <Dependent Role="Отдел">
-              <PropertyRef Name="id_магазина" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Продавец_Magazine1">
-          <End Role="Magazine" Type="Self.Magazine" Multiplicity="1" />
-          <End Role="Продавец" Type="Self.Продавец" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Magazine">
-              <PropertyRef Name="id_магазина" />
-            </Principal>
-            <Dependent Role="Продавец">
-              <PropertyRef Name="id_магазина" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Отдел_товар_Отдел">
-          <End Role="Отдел" Type="Self.Отдел" Multiplicity="1" />
-          <End Role="Отдел_товар" Type="Self.Отдел_товар" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Отдел">
-              <PropertyRef Name="id_отдела" />
-            </Principal>
-            <Dependent Role="Отдел_товар">
-              <PropertyRef Name="id_отдела" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Продавец_Отдел">
-          <End Role="Отдел" Type="Self.Отдел" Multiplicity="1" />
-          <End Role="Продавец" Type="Self.Продавец" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Отдел">
-              <PropertyRef Name="id_отдела" />
-            </Principal>
-            <Dependent Role="Продавец">
-              <PropertyRef Name="id_отдела" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Продавец_Товар__Выручка__Продавец">
-          <End Role="Продавец" Type="Self.Продавец" Multiplicity="1" />
-          <End Role="Продавец_Товар__Выручка_" Type="Self.Продавец_Товар__Выручка_" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Продавец">
-              <PropertyRef Name="id_продавца" />
-            </Principal>
-            <Dependent Role="Продавец_Товар__Выручка_">
-              <PropertyRef Name="id_продавца" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Продавец_Справочник__Улица">
-          <End Role="Справочник__Улица" Type="Self.Справочник__Улица" Multiplicity="1" />
-          <End Role="Продавец" Type="Self.Продавец" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Справочник__Улица">
-              <PropertyRef Name="id_СУ" />
-            </Principal>
-            <Dependent Role="Продавец">
-              <PropertyRef Name="id_СУ" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Продавец_Товар__Выручка__Товар">
-          <End Role="Товар" Type="Self.Товар" Multiplicity="1" />
-          <End Role="Продавец_Товар__Выручка_" Type="Self.Продавец_Товар__Выручка_" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Товар">
-              <PropertyRef Name="id_товара" />
-            </Principal>
-            <Dependent Role="Продавец_Товар__Выручка_">
-              <PropertyRef Name="id_товара" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Отдел_товар_Товар">
-          <End Role="Товар" Type="Self.Товар" Multiplicity="1" />
-          <End Role="Отдел_товар" Type="Self.Отдел_товар" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Товар">
-              <PropertyRef Name="id_товара" />
-            </Principal>
-            <Dependent Role="Отдел_товар">
-              <PropertyRef Name="id_товара" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="MagazineSetEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Magazine" EntityType="Self.Magazine" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="Отдел" EntityType="Self.Отдел" />
-          <EntitySet Name="Продавец" EntityType="Self.Продавец" />
-          <EntitySet Name="Продавец_Товар__Выручка_" EntityType="Self.Продавец_Товар__Выручка_" />
-          <EntitySet Name="Справочник__Улица" EntityType="Self.Справочник__Улица" />
-          <EntitySet Name="Товар" EntityType="Self.Товар" />
-          <EntitySet Name="Отдел_товар" EntityType="Self.Отдел_товар" />
-          <AssociationSet Name="FK_Magazine_Справочник__Улица" Association="Self.FK_Magazine_Справочник__Улица">
-            <End Role="Справочник__Улица" EntitySet="Справочник__Улица" />
-            <End Role="Magazine" EntitySet="Magazine" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Отдел_Magazine1" Association="Self.FK_Отдел_Magazine1">
-            <End Role="Magazine" EntitySet="Magazine" />
-            <End Role="Отдел" EntitySet="Отдел" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Продавец_Magazine1" Association="Self.FK_Продавец_Magazine1">
-            <End Role="Magazine" EntitySet="Magazine" />
-            <End Role="Продавец" EntitySet="Продавец" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Отдел_товар_Отдел" Association="Self.FK_Отдел_товар_Отдел">
-            <End Role="Отдел" EntitySet="Отдел" />
-            <End Role="Отдел_товар" EntitySet="Отдел_товар" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Продавец_Отдел" Association="Self.FK_Продавец_Отдел">
-            <End Role="Отдел" EntitySet="Отдел" />
-            <End Role="Продавец" EntitySet="Продавец" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Продавец_Товар__Выручка__Продавец" Association="Self.FK_Продавец_Товар__Выручка__Продавец">
-            <End Role="Продавец" EntitySet="Продавец" />
-            <End Role="Продавец_Товар__Выручка_" EntitySet="Продавец_Товар__Выручка_" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Продавец_Справочник__Улица" Association="Self.FK_Продавец_Справочник__Улица">
-            <End Role="Справочник__Улица" EntitySet="Справочник__Улица" />
-            <End Role="Продавец" EntitySet="Продавец" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Продавец_Товар__Выручка__Товар" Association="Self.FK_Продавец_Товар__Выручка__Товар">
-            <End Role="Товар" EntitySet="Товар" />
-            <End Role="Продавец_Товар__Выручка_" EntitySet="Продавец_Товар__Выручка_" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Отдел_товар_Товар" Association="Self.FK_Отдел_товар_Товар">
-            <End Role="Товар" EntitySet="Товар" />
-            <End Role="Отдел_товар" EntitySet="Отдел_товар" />
-          </AssociationSet>
+          <EntitySet Name="Magazine" EntityType="MagazineSetModel.Magazine" />
+          <EntitySet Name="sysdiagrams" EntityType="MagazineSetModel.sysdiagrams" />
           <EntitySet Name="Единица_измерения" EntityType="MagazineSetModel.Единица_измерения" />
+          <EntitySet Name="Отдел" EntityType="MagazineSetModel.Отдел" />
+          <EntitySet Name="Отдел_товар" EntityType="MagazineSetModel.Отдел_товар" />
+          <EntitySet Name="Продавец" EntityType="MagazineSetModel.Продавец" />
+          <EntitySet Name="Продавец_Товар__Выручка_" EntityType="MagazineSetModel.Продавец_Товар__Выручка_" />
           <EntitySet Name="Содержимое_чека" EntityType="MagazineSetModel.Содержимое_чека" />
+          <EntitySet Name="Справочник__Улица" EntityType="MagazineSetModel.Справочник__Улица" />
+          <EntitySet Name="Товар" EntityType="MagazineSetModel.Товар" />
           <EntitySet Name="Чек" EntityType="MagazineSetModel.Чек" />
+          <AssociationSet Name="FK_Magazine_Справочник__Улица" Association="MagazineSetModel.FK_Magazine_Справочник__Улица">
+            <End Role="Справочник__Улица" EntitySet="Справочник__Улица" />
+            <End Role="Magazine" EntitySet="Magazine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Отдел_Magazine1" Association="MagazineSetModel.FK_Отдел_Magazine1">
+            <End Role="Magazine" EntitySet="Magazine" />
+            <End Role="Отдел" EntitySet="Отдел" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Продавец_Magazine1" Association="MagazineSetModel.FK_Продавец_Magazine1">
+            <End Role="Magazine" EntitySet="Magazine" />
+            <End Role="Продавец" EntitySet="Продавец" />
+          </AssociationSet>
           <AssociationSet Name="FK_Товар_Единица_измерения" Association="MagazineSetModel.FK_Товар_Единица_измерения">
             <End Role="Единица_измерения" EntitySet="Единица_измерения" />
             <End Role="Товар" EntitySet="Товар" />
           </AssociationSet>
+          <AssociationSet Name="FK_Отдел_товар_Отдел" Association="MagazineSetModel.FK_Отдел_товар_Отдел">
+            <End Role="Отдел" EntitySet="Отдел" />
+            <End Role="Отдел_товар" EntitySet="Отдел_товар" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Продавец_Отдел" Association="MagazineSetModel.FK_Продавец_Отдел">
+            <End Role="Отдел" EntitySet="Отдел" />
+            <End Role="Продавец" EntitySet="Продавец" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Отдел_товар_Товар" Association="MagazineSetModel.FK_Отдел_товар_Товар">
+            <End Role="Товар" EntitySet="Товар" />
+            <End Role="Отдел_товар" EntitySet="Отдел_товар" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Продавец_Товар__Выручка__Продавец" Association="MagazineSetModel.FK_Продавец_Товар__Выручка__Продавец">
+            <End Role="Продавец" EntitySet="Продавец" />
+            <End Role="Продавец_Товар__Выручка_" EntitySet="Продавец_Товар__Выручка_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Продавец_Справочник__Улица" Association="MagazineSetModel.FK_Продавец_Справочник__Улица">
+            <End Role="Справочник__Улица" EntitySet="Справочник__Улица" />
+            <End Role="Продавец" EntitySet="Продавец" />
+          </AssociationSet>
           <AssociationSet Name="FK_Чек_Продавец1" Association="MagazineSetModel.FK_Чек_Продавец1">
             <End Role="Продавец" EntitySet="Продавец" />
             <End Role="Чек" EntitySet="Чек" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Продавец_Товар__Выручка__Товар" Association="MagazineSetModel.FK_Продавец_Товар__Выручка__Товар">
+            <End Role="Товар" EntitySet="Товар" />
+            <End Role="Продавец_Товар__Выручка_" EntitySet="Продавец_Товар__Выручка_" />
           </AssociationSet>
           <AssociationSet Name="FK_Содержимое_чека_Товар1" Association="MagazineSetModel.FK_Содержимое_чека_Товар1">
             <End Role="Товар" EntitySet="Товар" />
@@ -612,6 +400,28 @@
             <End Role="Содержимое_чека" EntitySet="Содержимое_чека" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Magazine">
+          <Key>
+            <PropertyRef Name="id_магазина" />
+          </Key>
+          <Property Name="id_магазина" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Имя_магазина" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="id_СУ" Type="Int32" Nullable="false" />
+          <Property Name="Дом" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Справочник__Улица" Relationship="MagazineSetModel.FK_Magazine_Справочник__Улица" FromRole="Magazine" ToRole="Справочник__Улица" />
+          <NavigationProperty Name="Отдел" Relationship="MagazineSetModel.FK_Отдел_Magazine1" FromRole="Magazine" ToRole="Отдел" />
+          <NavigationProperty Name="Продавец" Relationship="MagazineSetModel.FK_Продавец_Magazine1" FromRole="Magazine" ToRole="Продавец" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="Единица_измерения">
           <Key>
             <PropertyRef Name="id_ЕИ" />
@@ -620,28 +430,143 @@
           <Property Name="Название" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Товар" Relationship="MagazineSetModel.FK_Товар_Единица_измерения" FromRole="Единица_измерения" ToRole="Товар" />
         </EntityType>
+        <EntityType Name="Отдел">
+          <Key>
+            <PropertyRef Name="id_отдела" />
+          </Key>
+          <Property Name="id_отдела" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Имя_отдела" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="id_магазина" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Magazine" Relationship="MagazineSetModel.FK_Отдел_Magazine1" FromRole="Отдел" ToRole="Magazine" />
+          <NavigationProperty Name="Отдел_товар" Relationship="MagazineSetModel.FK_Отдел_товар_Отдел" FromRole="Отдел" ToRole="Отдел_товар" />
+          <NavigationProperty Name="Продавец" Relationship="MagazineSetModel.FK_Продавец_Отдел" FromRole="Отдел" ToRole="Продавец" />
+        </EntityType>
+        <EntityType Name="Отдел_товар">
+          <Key>
+            <PropertyRef Name="id_ОТ" />
+          </Key>
+          <Property Name="id_отдела" Type="Int32" Nullable="false" />
+          <Property Name="id_ОТ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_товара" Type="Int32" Nullable="false" />
+          <Property Name="Кол_во_товара" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+          <NavigationProperty Name="Отдел" Relationship="MagazineSetModel.FK_Отдел_товар_Отдел" FromRole="Отдел_товар" ToRole="Отдел" />
+          <NavigationProperty Name="Товар" Relationship="MagazineSetModel.FK_Отдел_товар_Товар" FromRole="Отдел_товар" ToRole="Товар" />
+        </EntityType>
+        <EntityType Name="Продавец">
+          <Key>
+            <PropertyRef Name="id_продавца" />
+          </Key>
+          <Property Name="id_продавца" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_отдела" Type="Int32" Nullable="false" />
+          <Property Name="Фамилия" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Имя" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Отчество" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_СУ" Type="Int32" Nullable="false" />
+          <Property Name="Дом" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="Квартира" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="id_магазина" Type="Int32" Nullable="false" />
+          <Property Name="Дата_рождения" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Номер_паспорта" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Дата_выдачи" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Кто_выдал_паспорт_" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Magazine" Relationship="MagazineSetModel.FK_Продавец_Magazine1" FromRole="Продавец" ToRole="Magazine" />
+          <NavigationProperty Name="Отдел" Relationship="MagazineSetModel.FK_Продавец_Отдел" FromRole="Продавец" ToRole="Отдел" />
+          <NavigationProperty Name="Продавец_Товар__Выручка_" Relationship="MagazineSetModel.FK_Продавец_Товар__Выручка__Продавец" FromRole="Продавец" ToRole="Продавец_Товар__Выручка_" />
+          <NavigationProperty Name="Справочник__Улица" Relationship="MagazineSetModel.FK_Продавец_Справочник__Улица" FromRole="Продавец" ToRole="Справочник__Улица" />
+          <NavigationProperty Name="Чек" Relationship="MagazineSetModel.FK_Чек_Продавец1" FromRole="Продавец" ToRole="Чек" />
+        </EntityType>
+        <EntityType Name="Продавец_Товар__Выручка_">
+          <Key>
+            <PropertyRef Name="id_выручки" />
+          </Key>
+          <Property Name="id_выручки" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_продавца" Type="Int32" Nullable="false" />
+          <Property Name="id_товара" Type="Int32" Nullable="false" />
+          <Property Name="Дата_продажи" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Кол_во_продан__товара" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Продавец" Relationship="MagazineSetModel.FK_Продавец_Товар__Выручка__Продавец" FromRole="Продавец_Товар__Выручка_" ToRole="Продавец" />
+          <NavigationProperty Name="Товар" Relationship="MagazineSetModel.FK_Продавец_Товар__Выручка__Товар" FromRole="Продавец_Товар__Выручка_" ToRole="Товар" />
+        </EntityType>
         <EntityType Name="Содержимое_чека">
           <Key>
             <PropertyRef Name="id_СЧ" />
           </Key>
           <Property Name="id_СЧ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_чека" Type="Int32" Nullable="false" />
-          <Property Name="id_товара" Type="Int64" Nullable="false" />
+          <Property Name="id_товара" Type="Int32" Nullable="false" />
           <Property Name="Кол_во_товара" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Name="Стоимость_товара" Type="Decimal" Nullable="false" Precision="6" Scale="2" />
           <NavigationProperty Name="Товар" Relationship="MagazineSetModel.FK_Содержимое_чека_Товар1" FromRole="Содержимое_чека" ToRole="Товар" />
           <NavigationProperty Name="Чек" Relationship="MagazineSetModel.FK_Содержимое_чека_Чек" FromRole="Содержимое_чека" ToRole="Чек" />
+        </EntityType>
+        <EntityType Name="Справочник__Улица">
+          <Key>
+            <PropertyRef Name="id_СУ" />
+          </Key>
+          <Property Name="id_СУ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Magazine" Relationship="MagazineSetModel.FK_Magazine_Справочник__Улица" FromRole="Справочник__Улица" ToRole="Magazine" />
+          <NavigationProperty Name="Продавец" Relationship="MagazineSetModel.FK_Продавец_Справочник__Улица" FromRole="Справочник__Улица" ToRole="Продавец" />
+        </EntityType>
+        <EntityType Name="Товар">
+          <Key>
+            <PropertyRef Name="id_товара" />
+          </Key>
+          <Property Name="id_товара" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Имя_товара" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Стоимость_товара_за_1_кг" Type="Decimal" Nullable="false" Precision="6" Scale="2" />
+          <Property Name="id_ЕИ" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Единица_измерения" Relationship="MagazineSetModel.FK_Товар_Единица_измерения" FromRole="Товар" ToRole="Единица_измерения" />
+          <NavigationProperty Name="Отдел_товар" Relationship="MagazineSetModel.FK_Отдел_товар_Товар" FromRole="Товар" ToRole="Отдел_товар" />
+          <NavigationProperty Name="Продавец_Товар__Выручка_" Relationship="MagazineSetModel.FK_Продавец_Товар__Выручка__Товар" FromRole="Товар" ToRole="Продавец_Товар__Выручка_" />
+          <NavigationProperty Name="Содержимое_чека" Relationship="MagazineSetModel.FK_Содержимое_чека_Товар1" FromRole="Товар" ToRole="Содержимое_чека" />
         </EntityType>
         <EntityType Name="Чек">
           <Key>
             <PropertyRef Name="id_чека" />
           </Key>
           <Property Name="id_чека" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="id_продавца" Type="Int64" Nullable="false" />
+          <Property Name="id_продавца" Type="Int32" Nullable="false" />
           <Property Name="Дата_продажи" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Продавец" Relationship="MagazineSetModel.FK_Чек_Продавец1" FromRole="Чек" ToRole="Продавец" />
           <NavigationProperty Name="Содержимое_чека" Relationship="MagazineSetModel.FK_Содержимое_чека_Чек" FromRole="Чек" ToRole="Содержимое_чека" />
         </EntityType>
+        <Association Name="FK_Magazine_Справочник__Улица">
+          <End Type="MagazineSetModel.Справочник__Улица" Role="Справочник__Улица" Multiplicity="1" />
+          <End Type="MagazineSetModel.Magazine" Role="Magazine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Справочник__Улица">
+              <PropertyRef Name="id_СУ" />
+            </Principal>
+            <Dependent Role="Magazine">
+              <PropertyRef Name="id_СУ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Отдел_Magazine1">
+          <End Type="MagazineSetModel.Magazine" Role="Magazine" Multiplicity="1" />
+          <End Type="MagazineSetModel.Отдел" Role="Отдел" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magazine">
+              <PropertyRef Name="id_магазина" />
+            </Principal>
+            <Dependent Role="Отдел">
+              <PropertyRef Name="id_магазина" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Продавец_Magazine1">
+          <End Type="MagazineSetModel.Magazine" Role="Magazine" Multiplicity="1" />
+          <End Type="MagazineSetModel.Продавец" Role="Продавец" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magazine">
+              <PropertyRef Name="id_магазина" />
+            </Principal>
+            <Dependent Role="Продавец">
+              <PropertyRef Name="id_магазина" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Товар_Единица_измерения">
           <End Type="MagazineSetModel.Единица_измерения" Role="Единица_измерения" Multiplicity="1" />
           <End Type="MagazineSetModel.Товар" Role="Товар" Multiplicity="*" />
@@ -654,6 +579,66 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Отдел_товар_Отдел">
+          <End Type="MagazineSetModel.Отдел" Role="Отдел" Multiplicity="1" />
+          <End Type="MagazineSetModel.Отдел_товар" Role="Отдел_товар" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Отдел">
+              <PropertyRef Name="id_отдела" />
+            </Principal>
+            <Dependent Role="Отдел_товар">
+              <PropertyRef Name="id_отдела" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Продавец_Отдел">
+          <End Type="MagazineSetModel.Отдел" Role="Отдел" Multiplicity="1" />
+          <End Type="MagazineSetModel.Продавец" Role="Продавец" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Отдел">
+              <PropertyRef Name="id_отдела" />
+            </Principal>
+            <Dependent Role="Продавец">
+              <PropertyRef Name="id_отдела" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Отдел_товар_Товар">
+          <End Type="MagazineSetModel.Товар" Role="Товар" Multiplicity="1" />
+          <End Type="MagazineSetModel.Отдел_товар" Role="Отдел_товар" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товар">
+              <PropertyRef Name="id_товара" />
+            </Principal>
+            <Dependent Role="Отдел_товар">
+              <PropertyRef Name="id_товара" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Продавец_Товар__Выручка__Продавец">
+          <End Type="MagazineSetModel.Продавец" Role="Продавец" Multiplicity="1" />
+          <End Type="MagazineSetModel.Продавец_Товар__Выручка_" Role="Продавец_Товар__Выручка_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Продавец">
+              <PropertyRef Name="id_продавца" />
+            </Principal>
+            <Dependent Role="Продавец_Товар__Выручка_">
+              <PropertyRef Name="id_продавца" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Продавец_Справочник__Улица">
+          <End Type="MagazineSetModel.Справочник__Улица" Role="Справочник__Улица" Multiplicity="1" />
+          <End Type="MagazineSetModel.Продавец" Role="Продавец" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Справочник__Улица">
+              <PropertyRef Name="id_СУ" />
+            </Principal>
+            <Dependent Role="Продавец">
+              <PropertyRef Name="id_СУ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Чек_Продавец1">
           <End Type="MagazineSetModel.Продавец" Role="Продавец" Multiplicity="1" />
           <End Type="MagazineSetModel.Чек" Role="Чек" Multiplicity="*" />
@@ -663,6 +648,18 @@
             </Principal>
             <Dependent Role="Чек">
               <PropertyRef Name="id_продавца" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Продавец_Товар__Выручка__Товар">
+          <End Type="MagazineSetModel.Товар" Role="Товар" Multiplicity="1" />
+          <End Type="MagazineSetModel.Продавец_Товар__Выручка_" Role="Продавец_Товар__Выручка_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товар">
+              <PropertyRef Name="id_товара" />
+            </Principal>
+            <Dependent Role="Продавец_Товар__Выручка_">
+              <PropertyRef Name="id_товара" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -690,7 +687,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -699,88 +696,21 @@
           <EntitySetMapping Name="Magazine">
             <EntityTypeMapping TypeName="MagazineSetModel.Magazine">
               <MappingFragment StoreEntitySet="Magazine">
-                <ScalarProperty Name="id_магазина" ColumnName="id магазина" />
-                <ScalarProperty Name="Имя_магазина" ColumnName="Имя магазина" />
-                <ScalarProperty Name="id_СУ" ColumnName="id СУ" />
                 <ScalarProperty Name="Дом" ColumnName="Дом" />
+                <ScalarProperty Name="id_СУ" ColumnName="id СУ" />
+                <ScalarProperty Name="Имя_магазина" ColumnName="Имя магазина" />
+                <ScalarProperty Name="id_магазина" ColumnName="id магазина" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="MagazineSetModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Отдел">
-            <EntityTypeMapping TypeName="MagazineSetModel.Отдел">
-              <MappingFragment StoreEntitySet="Отдел">
-                <ScalarProperty Name="id_отдела" ColumnName="id отдела" />
-                <ScalarProperty Name="Имя_отдела" ColumnName="Имя отдела" />
-                <ScalarProperty Name="id_магазина" ColumnName="id магазина" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Продавец">
-            <EntityTypeMapping TypeName="MagazineSetModel.Продавец">
-              <MappingFragment StoreEntitySet="Продавец">
-                <ScalarProperty Name="id_продавца" ColumnName="id продавца" />
-                <ScalarProperty Name="id_отдела" ColumnName="id отдела" />
-                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
-                <ScalarProperty Name="Имя" ColumnName="Имя" />
-                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
-                <ScalarProperty Name="id_СУ" ColumnName="id СУ" />
-                <ScalarProperty Name="Дом" ColumnName="Дом" />
-                <ScalarProperty Name="Квартира" ColumnName="Квартира" />
-                <ScalarProperty Name="id_магазина" ColumnName="id магазина" />
-                <ScalarProperty Name="Дата_рождения" ColumnName="Дата рождения" />
-                <ScalarProperty Name="Номер_паспорта" ColumnName="Номер паспорта" />
-                <ScalarProperty Name="Дата_выдачи" ColumnName="Дата выдачи" />
-                <ScalarProperty Name="Кто_выдал_паспорт_" ColumnName="Кто выдал паспорт?" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Продавец_Товар__Выручка_">
-            <EntityTypeMapping TypeName="MagazineSetModel.Продавец_Товар__Выручка_">
-              <MappingFragment StoreEntitySet="Продавец/Товар (Выручка)">
-                <ScalarProperty Name="id_выручки" ColumnName="id выручки" />
-                <ScalarProperty Name="id_продавца" ColumnName="id продавца" />
-                <ScalarProperty Name="id_товара" ColumnName="id товара" />
-                <ScalarProperty Name="Дата_продажи" ColumnName="Дата продажи" />
-                <ScalarProperty Name="Кол_во_продан__товара" ColumnName="Кол-во продан. товара" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Справочник__Улица">
-            <EntityTypeMapping TypeName="MagazineSetModel.Справочник__Улица">
-              <MappingFragment StoreEntitySet="Справочник: Улица">
-                <ScalarProperty Name="id_СУ" ColumnName="id СУ" />
-                <ScalarProperty Name="Название" ColumnName="Название" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Товар">
-            <EntityTypeMapping TypeName="MagazineSetModel.Товар">
-              <MappingFragment StoreEntitySet="Товар">
-                <ScalarProperty Name="id_ЕИ" ColumnName="id ЕИ" />
-                <ScalarProperty Name="id_товара" ColumnName="id товара" />
-                <ScalarProperty Name="Имя_товара" ColumnName="Имя товара" />
-                <ScalarProperty Name="Стоимость_товара_за_1_кг" ColumnName="Стоимость товара за 1 кг" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Отдел_товар">
-            <EntityTypeMapping TypeName="MagazineSetModel.Отдел_товар">
-              <MappingFragment StoreEntitySet="Отдел/товар">
-                <ScalarProperty Name="id_ОТ" ColumnName="id ОТ" />
-                <ScalarProperty Name="id_отдела" ColumnName="id отдела" />
-                <ScalarProperty Name="id_товара" ColumnName="id товара" />
-                <ScalarProperty Name="Кол_во_товара" ColumnName="Кол-во товара" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -792,6 +722,55 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Отдел">
+            <EntityTypeMapping TypeName="MagazineSetModel.Отдел">
+              <MappingFragment StoreEntitySet="Отдел">
+                <ScalarProperty Name="id_магазина" ColumnName="id магазина" />
+                <ScalarProperty Name="Имя_отдела" ColumnName="Имя отдела" />
+                <ScalarProperty Name="id_отдела" ColumnName="id отдела" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Отдел_товар">
+            <EntityTypeMapping TypeName="MagazineSetModel.Отдел_товар">
+              <MappingFragment StoreEntitySet="Отдел/товар">
+                <ScalarProperty Name="Кол_во_товара" ColumnName="Кол-во товара" />
+                <ScalarProperty Name="id_товара" ColumnName="id товара" />
+                <ScalarProperty Name="id_ОТ" ColumnName="id ОТ" />
+                <ScalarProperty Name="id_отдела" ColumnName="id отдела" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Продавец">
+            <EntityTypeMapping TypeName="MagazineSetModel.Продавец">
+              <MappingFragment StoreEntitySet="Продавец">
+                <ScalarProperty Name="Кто_выдал_паспорт_" ColumnName="Кто выдал паспорт?" />
+                <ScalarProperty Name="Дата_выдачи" ColumnName="Дата выдачи" />
+                <ScalarProperty Name="Номер_паспорта" ColumnName="Номер паспорта" />
+                <ScalarProperty Name="Дата_рождения" ColumnName="Дата рождения" />
+                <ScalarProperty Name="id_магазина" ColumnName="id магазина" />
+                <ScalarProperty Name="Квартира" ColumnName="Квартира" />
+                <ScalarProperty Name="Дом" ColumnName="Дом" />
+                <ScalarProperty Name="id_СУ" ColumnName="id СУ" />
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+                <ScalarProperty Name="id_отдела" ColumnName="id отдела" />
+                <ScalarProperty Name="id_продавца" ColumnName="id продавца" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Продавец_Товар__Выручка_">
+            <EntityTypeMapping TypeName="MagazineSetModel.Продавец_Товар__Выручка_">
+              <MappingFragment StoreEntitySet="Продавец/Товар (Выручка)">
+                <ScalarProperty Name="Кол_во_продан__товара" ColumnName="Кол-во продан. товара" />
+                <ScalarProperty Name="Дата_продажи" ColumnName="Дата продажи" />
+                <ScalarProperty Name="id_товара" ColumnName="id товара" />
+                <ScalarProperty Name="id_продавца" ColumnName="id продавца" />
+                <ScalarProperty Name="id_выручки" ColumnName="id выручки" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Содержимое_чека">
             <EntityTypeMapping TypeName="MagazineSetModel.Содержимое_чека">
               <MappingFragment StoreEntitySet="Содержимое чека">
@@ -800,6 +779,24 @@
                 <ScalarProperty Name="id_товара" ColumnName="id товара" />
                 <ScalarProperty Name="id_чека" ColumnName="id чека" />
                 <ScalarProperty Name="id_СЧ" ColumnName="id СЧ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Справочник__Улица">
+            <EntityTypeMapping TypeName="MagazineSetModel.Справочник__Улица">
+              <MappingFragment StoreEntitySet="Справочник: Улица">
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="id_СУ" ColumnName="id СУ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Товар">
+            <EntityTypeMapping TypeName="MagazineSetModel.Товар">
+              <MappingFragment StoreEntitySet="Товар">
+                <ScalarProperty Name="id_ЕИ" ColumnName="id ЕИ" />
+                <ScalarProperty Name="Стоимость_товара_за_1_кг" ColumnName="Стоимость товара за 1 кг" />
+                <ScalarProperty Name="Имя_товара" ColumnName="Имя товара" />
+                <ScalarProperty Name="id_товара" ColumnName="id товара" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

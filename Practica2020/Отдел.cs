@@ -21,9 +21,9 @@ namespace Practica2020
             this.Продавец = new HashSet<Продавец>();
         }
     
-        public long id_отдела { get; set; }
+        public int id_отдела { get; set; }
         public string Имя_отдела { get; set; }
-        public long id_магазина { get; set; }
+        public int id_магазина { get; set; }
     
         public virtual Magazine Magazine { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

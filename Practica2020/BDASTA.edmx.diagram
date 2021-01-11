@@ -5,28 +5,28 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="699126d02593443eaac5b465e9c6b994" Name="Diagram1">
-        <EntityTypeShape EntityType="MagazineSetModel.Magazine" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MagazineSetModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="MagazineSetModel.Отдел" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MagazineSetModel.Продавец" Width="1.5" PointX="7.5" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MagazineSetModel.Продавец_Товар__Выручка_" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MagazineSetModel.Справочник__Улица" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="MagazineSetModel.Товар" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MagazineSetModel.Отдел_товар" Width="1.5" PointX="10.5" PointY="4" IsExpanded="true" />
-        <AssociationConnector Association="MagazineSetModel.FK_Magazine_Справочник__Улица" ManuallyRouted="false" />
-        <AssociationConnector Association="MagazineSetModel.FK_Отдел_Magazine1" ManuallyRouted="false" />
-        <AssociationConnector Association="MagazineSetModel.FK_Продавец_Magazine1" ManuallyRouted="false" />
-        <AssociationConnector Association="MagazineSetModel.FK_Отдел_товар_Отдел" ManuallyRouted="false" />
-        <AssociationConnector Association="MagazineSetModel.FK_Продавец_Отдел" ManuallyRouted="false" />
-        <AssociationConnector Association="MagazineSetModel.FK_Продавец_Товар__Выручка__Продавец" ManuallyRouted="false" />
-        <AssociationConnector Association="MagazineSetModel.FK_Продавец_Справочник__Улица" ManuallyRouted="false" />
-        <AssociationConnector Association="MagazineSetModel.FK_Продавец_Товар__Выручка__Товар" ManuallyRouted="false" />
-        <AssociationConnector Association="MagazineSetModel.FK_Отдел_товар_Товар" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="MagazineSetModel.Единица_измерения" Width="1.5" PointX="6" PointY="8.5" />
-        <EntityTypeShape EntityType="MagazineSetModel.Содержимое_чека" Width="1.5" PointX="12" PointY="9.75" />
-        <EntityTypeShape EntityType="MagazineSetModel.Чек" Width="1.5" PointX="9.75" PointY="12" />
+        <EntityTypeShape EntityType="MagazineSetModel.Magazine" Width="1.5" PointX="3" PointY="4.25" />
+        <EntityTypeShape EntityType="MagazineSetModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MagazineSetModel.Единица_измерения" Width="1.5" PointX="6" PointY="11.625" />
+        <EntityTypeShape EntityType="MagazineSetModel.Отдел" Width="1.5" PointX="5.25" PointY="4.375" />
+        <EntityTypeShape EntityType="MagazineSetModel.Отдел_товар" Width="1.5" PointX="10.5" PointY="4.375" />
+        <EntityTypeShape EntityType="MagazineSetModel.Продавец" Width="1.5" PointX="7.5" PointY="3.25" />
+        <EntityTypeShape EntityType="MagazineSetModel.Продавец_Товар__Выручка_" Width="1.5" PointX="9.75" PointY="1.25" />
+        <EntityTypeShape EntityType="MagazineSetModel.Содержимое_чека" Width="1.5" PointX="12" PointY="7.375" />
+        <EntityTypeShape EntityType="MagazineSetModel.Справочник__Улица" Width="1.5" PointX="0.75" PointY="4.5" />
+        <EntityTypeShape EntityType="MagazineSetModel.Товар" Width="1.5" PointX="8.25" PointY="11.125" />
+        <EntityTypeShape EntityType="MagazineSetModel.Чек" Width="1.5" PointX="9.75" PointY="7.625" />
+        <AssociationConnector Association="MagazineSetModel.FK_Magazine_Справочник__Улица" />
+        <AssociationConnector Association="MagazineSetModel.FK_Отдел_Magazine1" />
+        <AssociationConnector Association="MagazineSetModel.FK_Продавец_Magazine1" />
         <AssociationConnector Association="MagazineSetModel.FK_Товар_Единица_измерения" />
+        <AssociationConnector Association="MagazineSetModel.FK_Отдел_товар_Отдел" />
+        <AssociationConnector Association="MagazineSetModel.FK_Продавец_Отдел" />
+        <AssociationConnector Association="MagazineSetModel.FK_Отдел_товар_Товар" />
+        <AssociationConnector Association="MagazineSetModel.FK_Продавец_Товар__Выручка__Продавец" />
+        <AssociationConnector Association="MagazineSetModel.FK_Продавец_Справочник__Улица" />
         <AssociationConnector Association="MagazineSetModel.FK_Чек_Продавец1" />
+        <AssociationConnector Association="MagazineSetModel.FK_Продавец_Товар__Выручка__Товар" />
         <AssociationConnector Association="MagazineSetModel.FK_Содержимое_чека_Товар1" />
         <AssociationConnector Association="MagazineSetModel.FK_Содержимое_чека_Чек" />
       </Diagram>

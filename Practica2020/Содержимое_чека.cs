@@ -16,7 +16,7 @@ namespace Practica2020
     {
         public int id_СЧ { get; set; }
         public int id_чека { get; set; }
-        public long id_товара { get; set; }
+        public int id_товара { get; set; }
         public string Кол_во_товара { get; set; }
         public decimal Стоимость_товара { get; set; }
     
