@@ -90,6 +90,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BDASTA.tt</DependentUpon>
     </Compile>
+    <Compile Include="contextClass.cs" />
     <Compile Include="GainPage.xaml.cs">
       <DependentUpon>GainPage.xaml</DependentUpon>
     </Compile>
@@ -121,6 +122,9 @@
     <Compile Include="TovarPage.xaml.cs">
       <DependentUpon>TovarPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Единица_измерения.cs">
+      <DependentUpon>BDASTA.tt</DependentUpon>
+    </Compile>
     <Compile Include="Отдел.cs">
       <DependentUpon>BDASTA.tt</DependentUpon>
     </Compile>
@@ -133,10 +137,16 @@
     <Compile Include="Продавец_Товар__Выручка_.cs">
       <DependentUpon>BDASTA.tt</DependentUpon>
     </Compile>
+    <Compile Include="Содержимое_чека.cs">
+      <DependentUpon>BDASTA.tt</DependentUpon>
+    </Compile>
     <Compile Include="Справочник__Улица.cs">
       <DependentUpon>BDASTA.tt</DependentUpon>
     </Compile>
     <Compile Include="Товар.cs">
+      <DependentUpon>BDASTA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Чек.cs">
       <DependentUpon>BDASTA.tt</DependentUpon>
     </Compile>
     <Page Include="AddPage.xaml">

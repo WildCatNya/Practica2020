@@ -12,14 +12,15 @@ namespace Practica2020
     using System;
     using System.Collections.Generic;
     
-    public partial class Отдел_товар
+    public partial class Содержимое_чека
     {
-        public long id_отдела { get; set; }
+        public int id_СЧ { get; set; }
+        public int id_чека { get; set; }
         public long id_товара { get; set; }
         public string Кол_во_товара { get; set; }
-        public int id_ОТ { get; set; }
+        public decimal Стоимость_товара { get; set; }
     
-        public virtual Отдел Отдел { get; set; }
         public virtual Товар Товар { get; set; }
+        public virtual Чек Чек { get; set; }
     }
 }

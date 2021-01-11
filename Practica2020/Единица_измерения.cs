@@ -12,14 +12,18 @@ namespace Practica2020
     using System;
     using System.Collections.Generic;
     
-    public partial class Отдел_товар
+    public partial class Единица_измерения
     {
-        public long id_отдела { get; set; }
-        public long id_товара { get; set; }
-        public string Кол_во_товара { get; set; }
-        public int id_ОТ { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Единица_измерения()
+        {
+            this.Товар = new HashSet<Товар>();
+        }
     
-        public virtual Отдел Отдел { get; set; }
-        public virtual Товар Товар { get; set; }
+        public int id_ЕИ { get; set; }
+        public string Название { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Товар> Товар { get; set; }
     }
 }

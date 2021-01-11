@@ -59,7 +59,8 @@ namespace Practica2020
                     foreach (var validationError in validationErrors.ValidationErrors)
                     {
                         
-                        Trace.TraceInformation("Property: {0} Error: {1}", MessageBox.Show(validationError.PropertyName), MessageBox.Show(validationError.ErrorMessage));
+                        Trace.TraceInformation("Property: {0} Error: {1}", MessageBox.Show(validationError.PropertyName), 
+                            MessageBox.Show(validationError.ErrorMessage));
                     }
                 }
             }

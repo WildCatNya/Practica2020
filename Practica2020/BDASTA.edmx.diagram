@@ -22,6 +22,13 @@
         <AssociationConnector Association="MagazineSetModel.FK_Продавец_Справочник__Улица" ManuallyRouted="false" />
         <AssociationConnector Association="MagazineSetModel.FK_Продавец_Товар__Выручка__Товар" ManuallyRouted="false" />
         <AssociationConnector Association="MagazineSetModel.FK_Отдел_товар_Товар" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MagazineSetModel.Единица_измерения" Width="1.5" PointX="6" PointY="8.5" />
+        <EntityTypeShape EntityType="MagazineSetModel.Содержимое_чека" Width="1.5" PointX="12" PointY="9.75" />
+        <EntityTypeShape EntityType="MagazineSetModel.Чек" Width="1.5" PointX="9.75" PointY="12" />
+        <AssociationConnector Association="MagazineSetModel.FK_Товар_Единица_измерения" />
+        <AssociationConnector Association="MagazineSetModel.FK_Чек_Продавец1" />
+        <AssociationConnector Association="MagazineSetModel.FK_Содержимое_чека_Товар1" />
+        <AssociationConnector Association="MagazineSetModel.FK_Содержимое_чека_Чек" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
