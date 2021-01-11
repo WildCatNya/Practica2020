@@ -15,21 +15,11 @@ namespace Practica2020
     
     public partial class MagazineSetEntities : DbContext
     {
-        private static MagazineSetEntities _context;
         public MagazineSetEntities()
             : base("name=MagazineSetEntities")
         {
         }
-
-        public static MagazineSetEntities GetContext()
-        {
-            if (_context == null)
-            {
-                _context = new MagazineSetEntities();
-            }
-            return _context;
-        }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -43,5 +33,8 @@ namespace Practica2020
         public virtual DbSet<Справочник__Улица> Справочник__Улица { get; set; }
         public virtual DbSet<Товар> Товар { get; set; }
         public virtual DbSet<Отдел_товар> Отдел_товар { get; set; }
+        public virtual DbSet<Единица_измерения> Единица_измерения { get; set; }
+        public virtual DbSet<Содержимое_чека> Содержимое_чека { get; set; }
+        public virtual DbSet<Чек> Чек { get; set; }
     }
 }

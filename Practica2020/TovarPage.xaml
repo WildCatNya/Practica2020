@@ -17,7 +17,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Имя товара" Binding="{Binding Имя_товара}" Width="200"/>
                 <DataGridTextColumn Header="Стоимость товара за 1 кг" Binding="{Binding Стоимость_товара_за_1_кг}" Width="*"/>
-                <DataGridTextColumn Header="Ед. измерения" Binding="{Binding Ед__изм_}" Width="*"/>
+                <DataGridTextColumn Header="Ед. измерения" Binding="{Binding Единица_измерения.Название}" Width="*"/>
                 <DataGridTemplateColumn Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

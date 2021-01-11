@@ -18,6 +18,7 @@ namespace Practica2020
         public Продавец()
         {
             this.Продавец_Товар__Выручка_ = new HashSet<Продавец_Товар__Выручка_>();
+            this.Чек = new HashSet<Чек>();
         }
     
         public long id_продавца { get; set; }
@@ -39,5 +40,7 @@ namespace Practica2020
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Продавец_Товар__Выручка_> Продавец_Товар__Выручка_ { get; set; }
         public virtual Справочник__Улица Справочник__Улица { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Чек> Чек { get; set; }
     }
 }
